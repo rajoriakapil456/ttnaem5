@@ -5,5 +5,13 @@ current time =>
 <br><br>
 <div data-sly-use.model="com.Bootcamp.core.models.MyModel">
 ${model.resourceText}
-${model.resourceChildren}
+<ul data-sly-list="${model.resourceChildren}">
+<li>${item.text} -- ${item.value}</li>
+</ul>
 </div>
+<form action="/action_page.php">
+  <label for="cars">Choose your resource</label>
+  <select data-sly-list="${model.resourceChildren}" name="child resources" id="child resources">
+    <option >${item.name} -- ${item.text} -- ${item.value}</option>
+  </select>
+</form>
